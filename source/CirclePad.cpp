@@ -77,6 +77,10 @@ void CirclePad::RawToCirclePadCoords(CirclePadEntry *result, CirclePadEntry raw)
         finaly = -finaly;
 
     result->y = finaly;
+
+    const int DEADZONE = 80;
+    if (abs(result->x) < DEADZONE) result->x = 0;
+    if (abs(result->y) < DEADZONE) result->y = 0;
 }
 
 void CirclePad::AdjustValues(int16_t *adjustedx, int16_t *adjustedy, int rawx, int rawy, int min, int max) {

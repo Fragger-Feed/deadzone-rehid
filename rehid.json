@@ -1,0 +1,36 @@
+{
+  "cpad": [
+    {
+      "press": "LEFT",
+      "get": [ -190, 0 ]
+    },
+    {
+      "press": "RIGHT",
+      "get": [ 190, 0 ]
+    },
+    {
+      "press": "UP",
+      "get": [ 0, 190 ]
+    },
+    {
+      "press": "DOWN",
+      "get": [ 0, -190 ]
+    },
+    {
+      "press": "DOWN+LEFT",
+      "get": [ -190, -190 ]
+    },
+    {
+      "press": "DOWN+RIGHT",
+      "get": [ 190, -190 ]
+    },
+    {
+      "press": "UP+RIGHT",
+      "get": [ 190, 190 ]
+    },
+    {
+      "press": "UP+LEFT",
+      "get": [ -190, 190 ]
+    }
+  ]
+}

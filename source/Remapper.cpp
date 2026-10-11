@@ -302,6 +302,8 @@ uint32_t Remapper::CirclePadRemap(uint32_t hidstate, CirclePadEntry *circlepad) 
         }
     }
 
+    newstate |= CirclePad::DirectionButtons(&newentry);
+
     circlepad->x = newentry.x;
     circlepad->y = newentry.y;
     return newstate;

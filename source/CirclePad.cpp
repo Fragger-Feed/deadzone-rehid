@@ -26,7 +26,7 @@ void CirclePad::GetConfigSettings() {
     m_center.y = calib.centery;
 }
 
-void CirclePad::RawToCirclePadCoords(CirclePadEntry *result, CirclePadEntry raw) {
+void CirclePad::RawToCirclePadCoords(CirclePadEntry* result, CirclePadEntry raw) {
     result->x = raw.x;
     s16 diffx = raw.x - m_latestdata.x;
 
@@ -116,9 +116,13 @@ void CirclePad::AdjustValues(int16_t *adjustedx, int16_t *adjustedy, int rawx, i
 }
 
 uint32_t CirclePad::ConvertToHidButtons(CirclePadEntry *circlepad, uint32_t buttons) {
+    return (buttons & 0xFFFFFFF) | DirectionButtons(circlepad);
+}
+
+uint32_t CirclePad::DirectionButtons(const CirclePadEntry *circlepad) {
     int32_t tanybyx = 0, tanxbyy = 0;
     CirclePadEntry adjusted;
-    buttons = buttons & 0xFFFFFFF;
+    uint32_t buttons = 0;
     u32 left = KEY_CPAD_LEFT, right = KEY_CPAD_RIGHT, up = KEY_CPAD_UP, down = KEY_CPAD_DOWN;
     AdjustValues(&adjusted.x, &adjusted.y, circlepad->x, circlepad->y, 40, 145);
 

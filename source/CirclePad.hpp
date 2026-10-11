@@ -10,7 +10,8 @@ public:
     void GetConfigSettings();
     void RawToCirclePadCoords(CirclePadEntry *result, CirclePadEntry raw);
     uint32_t ConvertToHidButtons(CirclePadEntry *circlepad, uint32_t buttons);
-    void AdjustValues(int16_t *adjustedx, int16_t *adjustedy, int rawx, int rawy, int min, int max);
+    static void AdjustValues(int16_t *adjustedx, int16_t *adjustedy, int rawx, int rawy, int min, int max);
+    static uint32_t DirectionButtons(const CirclePadEntry *circlepad);
 private:
     CirclePadEntry m_latestdata = {0x800, 0x800};
     CirclePadEntry m_center = {0x800, 0x800};
